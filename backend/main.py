@@ -12,8 +12,9 @@ import random
 from typing import List
 
 app = FastAPI()
-OTP_API_HOST = "http://localhost"
-OTP_API_PORT = 8080
+#OTP_API_HOST = "http://localhost"
+OTP_API_HOST = "https://rws7z95b-8080.asse.devtunnels.ms"
+#OTP_API_PORT = 8080
 
 app.add_middleware(
     CORSMiddleware,
@@ -131,7 +132,8 @@ async def proxy_post(request: Request):
     modified_body = json.dumps(graphql_query)
 
     # OTPサーバーへのリクエストURL
-    otp_url = f"{OTP_API_HOST}:{OTP_API_PORT}/otp/routers/default/index/graphql"
+    #otp_url = f"{OTP_API_HOST}:{OTP_API_PORT}/otp/routers/default/index/graphql"
+    otp_url = f"{OTP_API_HOST}/otp/routers/default/index/graphql"
     logger.info(f"POST request to OTP URL: {otp_url}")
     # logger.info(f"Request body: {modified_body}")
     # logger.info(f"Request headers: {headers}")
